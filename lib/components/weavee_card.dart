@@ -10,73 +10,71 @@ class WeaveeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.fromLTRB(
-        defaultMargin,
-        0,
-        defaultMargin,
-        defaultMargin,
-      ),
-      child: Row(
-        children: [
-          const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/ado.jpg'),
-            foregroundImage: AssetImage('assets/images/ado.jpg'),
-            radius: 24,
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          weavee.name,
-                          style: primaryTextStyle.copyWith(
-                            fontSize: 14,
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(defaultMargin, 12, defaultMargin, 12),
+        child: Row(
+          children: [
+            const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/ado.jpg'),
+              foregroundImage: AssetImage('assets/images/ado.jpg'),
+              radius: 24,
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            weavee.name,
+                            style: primaryTextStyle.copyWith(
+                              fontSize: 14,
+                              fontWeight: bold,
+                            ),
+                          ),
+                          Text(
+                            '@${weavee.username}',
+                            style: subtitleTextStyle.copyWith(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 24,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                        ),
+                        child: Text(
+                          'Weave',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
                             fontWeight: bold,
+                            color: Colors.black,
                           ),
                         ),
-                        Text(
-                          '@${weavee.username}',
-                          style: subtitleTextStyle.copyWith(fontSize: 12),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal: 24,
                       ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.white,
-                      ),
-                      child: Text(
-                        'Weave',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  weavee.bio ?? 'No Bio',
-                  style: primaryTextStyle.copyWith(fontSize: 12),
-                ),
-              ],
+                    ],
+                  ),
+                  Text(
+                    weavee.bio ?? 'No Bio',
+                    style: primaryTextStyle.copyWith(fontSize: 12),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

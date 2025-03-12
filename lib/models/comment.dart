@@ -1,8 +1,14 @@
+import 'package:weaver/models/post.dart';
+
 class Comment {
   final String id;
   final String postId;
   final String userId;
   final String content;
+  final String commenterName;
+  final String commenterUsername;
+  final String commenterImageUrl;
+  final Post post;
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -11,18 +17,30 @@ class Comment {
     required this.postId,
     required this.userId,
     required this.content,
+    required this.commenterName,
+    required this.commenterUsername,
+    required this.commenterImageUrl,
+    required this.post,
     required this.createdAt,
     required this.updatedAt,
   });
 
   factory Comment.fromJson(Map<String, dynamic> json) {
     return Comment(
-      id: json['id'],
-      postId: json['post_id'],
-      userId: json['user_id'],
-      content: json['content'],
-      createdAt: DateTime.parse(json['created_at']),
-      updatedAt: DateTime.parse(json['updated_at']),
+      id: json['id'] as String? ?? '',
+      postId: json['post_id'] as String? ?? '',
+      userId: json['user_id'] as String? ?? '',
+      content: json['content'] as String? ?? '',
+      commenterName: json['user']?['name'] as String? ?? '',
+      commenterUsername: json['user']?['username'] as String? ?? '',
+      commenterImageUrl: json['user']?['imageUrl'] as String? ?? '',
+      post: Post.fromJson(json['post'] as Map<String, dynamic>? ?? {}),
+      createdAt:
+          DateTime.tryParse(json['created_at'] as String? ?? '') ??
+          DateTime.now(),
+      updatedAt:
+          DateTime.tryParse(json['updated_at'] as String? ?? '') ??
+          DateTime.now(),
     );
   }
 
@@ -32,6 +50,10 @@ class Comment {
       'post_id': postId,
       'user_id': userId,
       'content': content,
+      'commenterName': commenterName,
+      'commenterUsername': commenterUsername,
+      'commenterImageUrl': commenterImageUrl,
+      'post': post.toJson(),
       'created_at': createdAt.toIso8601String(),
       'updated_at': updatedAt.toIso8601String(),
     };

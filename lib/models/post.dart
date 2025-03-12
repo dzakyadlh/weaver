@@ -23,19 +23,23 @@ class Post {
 
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
-      id: json['id'] as String,
-      caption: json['caption'] as String,
-      likes: json['likes'] as int,
-      updatedAt: DateTime.parse(json['updated_at'] as String),
+      id: json['id'] as String? ?? '',
+      caption: json['caption'] as String? ?? '',
+      likes: json['likes'] as int? ?? 0,
+      updatedAt:
+          DateTime.tryParse(json['updated_at'] as String? ?? '') ??
+          DateTime.now(),
       media:
-          (json['media'] as List)
-              .map((item) => Media.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          (json['media'] as List<dynamic>?)
+              ?.map((item) => Media.fromJson(item as Map<String, dynamic>))
+              .toList() ??
+          [],
       comments:
-          (json['comments'] as List)
-              .map((item) => Comment.fromJson(item as Map<String, dynamic>))
-              .toList(),
-      user: Weavee.fromJson(json['user'] as Map<String, dynamic>),
+          (json['comments'] as List<dynamic>?)
+              ?.map((item) => Comment.fromJson(item as Map<String, dynamic>))
+              .toList() ??
+          [],
+      user: Weavee.fromJson(json['user'] as Map<String, dynamic>? ?? {}),
     );
   }
 

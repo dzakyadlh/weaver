@@ -1,0 +1,302 @@
+[
+  {
+    "id": "cmt_001",
+    "post_id": "post_101",
+    "user_id": "user_001",
+    "content": "This is an amazing post!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T12:00:00Z",
+    "updated_at": "2025-03-11T12:05:00Z"
+  },
+  {
+    "id": "cmt_002",
+    "post_id": "post_102",
+    "user_id": "user_001",
+    "content": "Nice perspective on this topic!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T12:10:00Z",
+    "updated_at": "2025-03-11T12:12:00Z"
+  },
+  {
+    "id": "cmt_003",
+    "post_id": "post_103",
+    "user_id": "user_001",
+    "content": "I totally agree with this!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T12:20:00Z",
+    "updated_at": "2025-03-11T12:25:00Z"
+  },
+  {
+    "id": "cmt_004",
+    "post_id": "post_104",
+    "user_id": "user_001",
+    "content": "Very insightful post, thanks for sharing!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T12:30:00Z",
+    "updated_at": "2025-03-11T12:32:00Z"
+  },
+  {
+    "id": "cmt_005",
+    "post_id": "post_105",
+    "user_id": "user_001",
+    "content": "I never thought about it that way!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T12:40:00Z",
+    "updated_at": "2025-03-11T12:45:00Z"
+  },
+  {
+    "id": "cmt_006",
+    "post_id": "post_106",
+    "user_id": "user_001",
+    "content": "Great explanation, I learned something new!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T12:50:00Z",
+    "updated_at": "2025-03-11T12:53:00Z"
+  },
+  {
+    "id": "cmt_007",
+    "post_id": "post_107",
+    "user_id": "user_001",
+    "content": "This really got me thinking!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T13:00:00Z",
+    "updated_at": "2025-03-11T13:02:00Z"
+  },
+  {
+    "id": "cmt_008",
+    "post_id": "post_108",
+    "user_id": "user_001",
+    "content": "I appreciate the effort you put into this post!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T13:10:00Z",
+    "updated_at": "2025-03-11T13:15:00Z"
+  },
+  {
+    "id": "cmt_009",
+    "post_id": "post_109",
+    "user_id": "user_001",
+    "content": "Nice work, keep it up!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T13:20:00Z",
+    "updated_at": "2025-03-11T13:22:00Z"
+  },
+  {
+    "id": "cmt_010",
+    "post_id": "post_110",
+    "user_id": "user_001",
+    "content": "Can't wait to see more posts like this!",
+    "user": {
+      "name": "Ado",
+      "username": "adomination",
+      "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg"
+    },
+    "post": {
+      "id": "123",
+      "caption": "Lorem ipsum dolor sit amet i dont know lol whatever lmao",
+      "likes": 123223,
+      "updated_at": "2023-10-05T12:34:56Z",
+      "media": [],
+      "comments": [],
+      "user": {
+        "id": "user_123",
+        "email": "adomination@example.com",
+        "name": "Ado Min",
+        "username": "adomination",
+        "imageUrl": "https://ncmqrjmwofkrysnskwqw.supabase.co/storage/v1/object/public/dummy//ado.jpg",
+        "bio": "Just another user posting stuff.",
+        "posts": []
+      }
+    },
+    "created_at": "2025-03-11T13:30:00Z",
+    "updated_at": "2025-03-11T13:35:00Z"
+  }
+]

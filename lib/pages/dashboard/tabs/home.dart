@@ -11,25 +11,21 @@ class Home extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final postState = ref.watch(postsNotifierProvider);
 
-    return postState.when(data: (posts) {
-      return ListView.builder(
+    return postState.when(
+      data: (posts) {
+        return ListView.builder(
           itemCount: posts.length,
           itemBuilder: (context, index) {
             return PostCard(post: posts[index]);
-          });
-    }, error: (e, stackTrace) {
-      return Center(
-        child: Text(
-          e.toString(),
-          style: errorTextStyle,
-        ),
-      );
-    }, loading: () {
-      return Center(
-        child: CircularProgressIndicator(
-          color: primaryColor,
-        ),
-      );
-    });
+          },
+        );
+      },
+      error: (e, stackTrace) {
+        return Center(child: Text(e.toString(), style: errorTextStyle));
+      },
+      loading: () {
+        return Center(child: CircularProgressIndicator(color: primaryColor));
+      },
+    );
   }
 }

@@ -5,11 +5,16 @@ import 'package:weaver/components/weavee_card.dart';
 import 'package:weaver/models/weavee.dart';
 import 'package:weaver/theme.dart';
 
-class Explore extends ConsumerWidget {
+class Explore extends ConsumerStatefulWidget {
   const Explore({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<Explore> createState() => _ExploreState();
+}
+
+class _ExploreState extends ConsumerState<Explore> {
+  @override
+  Widget build(BuildContext context) {
     final List<Map<String, dynamic>> trendingTopics = [
       {
         'genre': 'Music',
@@ -49,22 +54,67 @@ class Explore extends ConsumerWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(defaultMargin),
-            child: SearchBar(
-              hintText: 'Search',
-              hintStyle: WidgetStateProperty.all(
-                subtitleTextStyle.copyWith(fontSize: 14),
+            child: SearchAnchor(
+              viewHintText: 'Search',
+              viewBackgroundColor: backgroundPrimaryColor,
+              dividerColor: Colors.white10,
+              headerHintStyle: subtitleTextStyle.copyWith(fontSize: 14),
+              headerTextStyle: primaryTextStyle.copyWith(fontSize: 14),
+              viewLeading: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.arrow_back, color: primaryTextColor),
               ),
-              leading: Icon(Icons.search, size: 20, color: subtitleTextColor),
-              backgroundColor: WidgetStateProperty.all(Colors.white10),
-              autoFocus: true,
-              onTapOutside: (event) {},
-              onChanged: (value) async {
-                await Future.delayed(const Duration(milliseconds: 1000));
+              builder: (BuildContext context, SearchController controller) {
+                return SearchBar(
+                  textStyle: WidgetStatePropertyAll(
+                    primaryTextStyle.copyWith(fontSize: 14),
+                  ),
+                  hintText: 'Search',
+                  hintStyle: WidgetStateProperty.all(
+                    subtitleTextStyle.copyWith(fontSize: 14),
+                  ),
+                  leading: Icon(
+                    Icons.search,
+                    size: 20,
+                    color: subtitleTextColor,
+                  ),
+                  backgroundColor: WidgetStateProperty.all(Colors.white10),
+                  onTap: () {
+                    controller.openView();
+                  },
+                  elevation: WidgetStateProperty.all(0),
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                );
               },
-              elevation: WidgetStateProperty.all(0),
-              shape: WidgetStateProperty.all(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              ),
+              suggestionsBuilder: (
+                BuildContext context,
+                SearchController controller,
+              ) {
+                return List<ListTile>.generate(5, (int index) {
+                  final String item = 'item $index';
+                  return ListTile(
+                    title: Text(
+                      item,
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 12,
+                        fontWeight: semibold,
+                      ),
+                    ),
+                    tileColor: backgroundPrimaryColor,
+                    onTap: () {
+                      setState(() {
+                        controller.closeView(item);
+                      });
+                    },
+                  );
+                });
+              },
             ),
           ),
           Container(
@@ -118,7 +168,7 @@ class Explore extends ConsumerWidget {
             style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: bold),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(topics.length, (index) {
@@ -145,7 +195,7 @@ class Explore extends ConsumerWidget {
             style: primaryTextStyle.copyWith(fontSize: 16, fontWeight: bold),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(5, (index) {

@@ -18,15 +18,11 @@ class TopicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {},
       child: Container(
-        padding: EdgeInsets.fromLTRB(
-          defaultMargin,
-          0,
-          defaultMargin,
-          defaultMargin,
-        ),
+        width: MediaQuery.sizeOf(context).width,
+        padding: EdgeInsets.fromLTRB(defaultMargin, 12, defaultMargin, 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

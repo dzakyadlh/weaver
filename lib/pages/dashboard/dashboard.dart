@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weaver/pages/dashboard/tabs/add_post.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weaver/pages/dashboard/tabs/explore.dart';
 import 'package:weaver/pages/dashboard/tabs/home.dart';
 import 'package:weaver/pages/dashboard/tabs/profile.dart';
@@ -17,7 +17,6 @@ class _DashboardState extends State<Dashboard> {
   final List<Widget> _pages = <Widget>[
     const Home(),
     const Explore(),
-    const AddPost(),
     const Profile(),
   ];
 
@@ -30,27 +29,28 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(
-      //     'Weaver',
-      //     style: TextStyle(
-      //       color: primaryColor,
-      //       fontSize: 24,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      //   backgroundColor: backgroundPrimaryColor,
-      //   elevation: 0,
-      //   actions: [
-      //     IconButton(
-      //       icon: const Icon(
-      //         Icons.notifications_outlined,
-      //         color: Colors.white,
-      //       ),
-      //       onPressed: () {},
-      //     ),
-      //   ],
-      // ),
+      appBar: AppBar(
+        title: Text(
+          'Weaver',
+          style: GoogleFonts.sora(
+            color: primaryColor,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: backgroundPrimaryColor,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add_box_outlined, color: Colors.white),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
@@ -72,10 +72,6 @@ class _DashboardState extends State<Dashboard> {
             label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_rounded, size: 28),
-            label: 'Create Post',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.person, size: 28),
             label: 'Profile',
           ),
@@ -83,6 +79,19 @@ class _DashboardState extends State<Dashboard> {
       ),
       backgroundColor: backgroundPrimaryColor,
       resizeToAvoidBottomInset: false,
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(right: defaultMargin, bottom: 12),
+        child: FloatingActionButton(
+          onPressed: () {},
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          backgroundColor: primaryColor,
+          foregroundColor: primaryTextColor,
+          elevation: 2,
+          child: const Icon(Icons.edit_outlined, size: 28),
+        ),
+      ),
       body: SafeArea(child: _pages[_selectedIndex]),
     );
   }

@@ -20,13 +20,12 @@ class FilledButtonStateless extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-            color: primaryColor, borderRadius: BorderRadius.circular(50)),
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(50),
+        ),
         child: Text(
           buttonText,
-          style: primaryTextStyle.copyWith(
-            fontWeight: bold,
-            fontSize: 16,
-          ),
+          style: primaryTextStyle.copyWith(fontWeight: bold, fontSize: 16),
         ),
       ),
     );
@@ -59,18 +58,19 @@ class _FilledButtonStatefulState extends State<FilledButtonStateful> {
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-            color: primaryColor, borderRadius: BorderRadius.circular(50)),
-        child: widget.isLoading
-            ? const CircularProgressIndicator(
-                color: Colors.white,
-              )
-            : Text(
-                widget.buttonText,
-                style: primaryTextStyle.copyWith(
-                  fontWeight: bold,
-                  fontSize: 16,
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child:
+            widget.isLoading
+                ? const CircularProgressIndicator(color: Colors.white)
+                : Text(
+                  widget.buttonText,
+                  style: primaryTextStyle.copyWith(
+                    fontWeight: bold,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
       ),
     );
   }
@@ -100,11 +100,42 @@ class OutlinedButtonStateless extends StatelessWidget {
         ),
         child: Text(
           buttonText,
-          style: secondaryTextStyle.copyWith(
-            fontWeight: bold,
-            fontSize: 16,
-          ),
+          style: secondaryTextStyle.copyWith(fontWeight: bold, fontSize: 16),
         ),
+      ),
+    );
+  }
+}
+
+class SubIconButton extends StatelessWidget {
+  const SubIconButton({
+    super.key,
+    required this.icon,
+    required this.buttonText,
+    required this.iconSize,
+    required this.textSize,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String buttonText;
+  final double iconSize;
+  final double textSize;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Icon(icon, size: iconSize, color: subtitleTextColor),
+          const SizedBox(width: 8),
+          Text(
+            buttonText,
+            style: subtitleTextStyle.copyWith(fontSize: textSize),
+          ),
+        ],
       ),
     );
   }

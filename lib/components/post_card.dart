@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weaver/components/buttons.dart';
 import 'package:weaver/models/post.dart';
 import 'package:weaver/theme.dart';
 import 'package:weaver/utils/number_formatter.dart';
@@ -76,81 +77,49 @@ class _PostCardState extends State<PostCard> {
               textAlign: TextAlign.start,
             ),
             widget.post.media.isNotEmpty
-                ? Image.network(
-                  widget.post.media[0].url,
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.width,
-                  fit: BoxFit.fitWidth,
+                ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Image.network(
+                    widget.post.media[0].url,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.fitWidth,
+                  ),
                 )
                 : const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isLiked = !isLiked;
-                            });
-                          },
-                          child: Icon(
-                            isLiked ? Icons.favorite : Icons.favorite_outline,
-                            size: 24,
-                            color: isLiked ? Colors.pink : primaryTextColor,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          formatWithComma(widget.post.likes),
-                          style: primaryTextStyle.copyWith(
-                            fontSize: 14,
-                            fontWeight: semibold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 16),
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Icon(
-                            Icons.comment_outlined,
-                            size: 24,
-                            color: primaryTextColor,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          formatWithComma(widget.post.comments.length),
-                          style: primaryTextStyle.copyWith(
-                            fontSize: 14,
-                            fontWeight: semibold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 16),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.send_outlined,
-                        size: 24,
-                        color: primaryTextColor,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                  ],
+                SubIconButton(
+                  icon: Icons.comment_outlined,
+                  buttonText: '128',
+                  iconSize: 14,
+                  textSize: 14,
+                  onTap: () {},
                 ),
-                GestureDetector(
-                  child: Icon(
-                    Icons.bookmark_outline,
-                    color: primaryTextColor,
-                    size: 24,
-                  ),
+                SubIconButton(
+                  icon: isLiked ? Icons.favorite : Icons.favorite_outline,
+                  buttonText: '1228',
+                  iconSize: 14,
+                  textSize: 14,
+                  onTap: () {
+                    setState(() {
+                      isLiked = !isLiked;
+                    });
+                  },
+                ),
+                SubIconButton(
+                  icon: Icons.bar_chart_rounded,
+                  buttonText: '128',
+                  iconSize: 14,
+                  textSize: 14,
+                  onTap: () {},
+                ),
+                SubIconButton(
+                  icon: Icons.bookmark_outline,
+                  buttonText: '128',
+                  iconSize: 14,
+                  textSize: 14,
+                  onTap: () {},
                 ),
               ],
             ),
