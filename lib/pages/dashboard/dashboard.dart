@@ -29,28 +29,39 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Weaver',
-          style: GoogleFonts.sora(
-            color: primaryColor,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: backgroundPrimaryColor,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add_box_outlined, color: Colors.white),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.white),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      appBar:
+          _selectedIndex != 1
+              ? AppBar(
+                title: Text(
+                  'Weaver',
+                  style: GoogleFonts.sora(
+                    color: primaryColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                backgroundColor: backgroundPrimaryColor,
+                elevation: 0,
+                actions: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.add_box_outlined,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/new_post');
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.notifications_outlined,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              )
+              : null,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
@@ -82,7 +93,9 @@ class _DashboardState extends State<Dashboard> {
       floatingActionButton: Container(
         margin: EdgeInsets.only(right: defaultMargin, bottom: 12),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/new_post');
+          },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),

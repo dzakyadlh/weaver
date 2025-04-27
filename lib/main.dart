@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:weaver/pages/dashboard/dashboard.dart';
 import 'package:weaver/pages/landing/landing.dart';
+import 'package:weaver/pages/new_post/new_post.dart';
+import 'package:weaver/pages/post_detail/post_detail.dart';
 import 'package:weaver/pages/sign_in/sign_in.dart';
 import 'package:weaver/pages/sign_up/sign_up.dart';
 import 'package:weaver/splash.dart';
@@ -15,11 +17,7 @@ Future<void> main() async {
     url: '${dotenv.env['SUPABASE_PROJECT_URL']}',
     anonKey: '${dotenv.env['SUPABASE_ANON_KEY']}',
   );
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -36,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/sign_in': (context) => const SignIn(),
         '/sign_up': (context) => const SignUp(),
         '/dashboard': (context) => const Dashboard(),
+        '/new_post': (context) => const NewPost(),
+        '/post_detail': (context) => const PostDetail(),
       },
     );
   }

@@ -29,11 +29,11 @@ class Comment {
     return Comment(
       id: json['id'] as String? ?? '',
       postId: json['post_id'] as String? ?? '',
-      userId: json['user_id'] as String? ?? '',
+      userId: json['user_id']?['id'] as String? ?? '',
       content: json['content'] as String? ?? '',
-      commenterName: json['user']?['name'] as String? ?? '',
-      commenterUsername: json['user']?['username'] as String? ?? '',
-      commenterImageUrl: json['user']?['imageUrl'] as String? ?? '',
+      commenterName: json['user_id']?['name'] as String? ?? '',
+      commenterUsername: json['user_id']?['username'] as String? ?? '',
+      commenterImageUrl: json['user_id']?['imageUrl'] as String? ?? '',
       post: Post.fromJson(json['post'] as Map<String, dynamic>? ?? {}),
       createdAt:
           DateTime.tryParse(json['created_at'] as String? ?? '') ??

@@ -6,10 +6,16 @@ class FilledButtonStateless extends StatelessWidget {
     super.key,
     required this.buttonText,
     required this.onTap,
+    this.textSize = 16,
+    this.padding = const EdgeInsets.all(12),
+    this.margin = const EdgeInsets.only(bottom: 12),
   });
 
   final String buttonText;
   final VoidCallback onTap;
+  final double textSize;
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +23,19 @@ class FilledButtonStateless extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        margin: const EdgeInsets.only(bottom: 12),
-        padding: const EdgeInsets.all(12),
+        margin: margin,
+        padding: padding,
         decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(50),
         ),
         child: Text(
           buttonText,
-          style: primaryTextStyle.copyWith(fontWeight: bold, fontSize: 16),
+          style: primaryTextStyle.copyWith(
+            fontWeight: bold,
+            fontSize: textSize,
+            height: 1,
+          ),
         ),
       ),
     );
@@ -113,6 +123,7 @@ class SubIconButton extends StatelessWidget {
     required this.icon,
     required this.buttonText,
     required this.iconSize,
+    required this.iconColor,
     required this.textSize,
     required this.onTap,
   });
@@ -120,6 +131,7 @@ class SubIconButton extends StatelessWidget {
   final IconData icon;
   final String buttonText;
   final double iconSize;
+  final Color iconColor;
   final double textSize;
   final VoidCallback onTap;
 
@@ -129,7 +141,7 @@ class SubIconButton extends StatelessWidget {
       onTap: onTap,
       child: Row(
         children: [
-          Icon(icon, size: iconSize, color: subtitleTextColor),
+          Icon(icon, size: iconSize, color: iconColor),
           const SizedBox(width: 8),
           Text(
             buttonText,

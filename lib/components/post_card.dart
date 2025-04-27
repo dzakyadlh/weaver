@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weaver/components/buttons.dart';
 import 'package:weaver/models/post.dart';
+import 'package:weaver/pages/post_detail/post_detail.dart';
 import 'package:weaver/theme.dart';
 import 'package:weaver/utils/number_formatter.dart';
 
@@ -19,10 +20,14 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: () {
-        setState(() {
-          isLiked = true;
-        });
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const PostDetail(),
+            settings: RouteSettings(arguments: widget.post),
+          ),
+        );
       },
       child: Container(
         padding: EdgeInsets.all(defaultMargin),
@@ -79,10 +84,17 @@ class _PostCardState extends State<PostCard> {
             widget.post.media.isNotEmpty
                 ? Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Image.network(
-                    widget.post.media[0].url,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.fitWidth,
+                  child: GestureDetector(
+                    onDoubleTap: () {
+                      setState(() {
+                        isLiked = !isLiked;
+                      });
+                    },
+                    child: Image.network(
+                      widget.post.media[0].url,
+                      width: MediaQuery.of(context).size.width,
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 )
                 : const SizedBox(height: 16),
@@ -93,6 +105,8 @@ class _PostCardState extends State<PostCard> {
                   icon: Icons.comment_outlined,
                   buttonText: '128',
                   iconSize: 14,
+
+                  iconColor: subtitleTextColor,
                   textSize: 14,
                   onTap: () {},
                 ),
@@ -100,6 +114,8 @@ class _PostCardState extends State<PostCard> {
                   icon: isLiked ? Icons.favorite : Icons.favorite_outline,
                   buttonText: '1228',
                   iconSize: 14,
+
+                  iconColor: isLiked ? Colors.pink : subtitleTextColor,
                   textSize: 14,
                   onTap: () {
                     setState(() {
@@ -111,6 +127,8 @@ class _PostCardState extends State<PostCard> {
                   icon: Icons.bar_chart_rounded,
                   buttonText: '128',
                   iconSize: 14,
+
+                  iconColor: subtitleTextColor,
                   textSize: 14,
                   onTap: () {},
                 ),
@@ -118,6 +136,8 @@ class _PostCardState extends State<PostCard> {
                   icon: Icons.bookmark_outline,
                   buttonText: '128',
                   iconSize: 14,
+
+                  iconColor: subtitleTextColor,
                   textSize: 14,
                   onTap: () {},
                 ),

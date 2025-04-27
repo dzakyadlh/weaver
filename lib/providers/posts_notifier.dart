@@ -1,8 +1,6 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
-
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:weaver/models/post.dart';
+import 'package:weaver/utils/supabase.dart';
 
 part 'posts_notifier.g.dart';
 
@@ -14,19 +12,34 @@ class PostsNotifier extends _$PostsNotifier {
   }
 
   Future<List<Post>> _fetchPosts() async {
-    const AsyncValue.loading();
-    final String jsonString = await rootBundle.loadString(
-      'assets/dummies/posts_dummy.json',
-    );
+    state = const AsyncValue.loading();
+    final response = await supabaseClient
+        .from('posts')
+        .select('''
+          *,
+          user_id (id, name, username, image_url),
+          comments (
+            id,
+            content,
+            created_at,
+            user_id (id, name, username, image_url)
+          ),
+          media (
+            id,
+            url,
+            type
+          )
+        ''')
+        .order('updated_at', ascending: false);
+    print(response);
 
     try {
-      final jsonList = jsonDecode(jsonString);
-      final postsData =
-          (jsonList as List).map((item) => Post.fromJson(item)).toList();
-      Future.delayed(const Duration(seconds: 3));
+      final postsData = response.map((item) => Post.fromJson(item)).toList();
+      print(postsData);
       state = AsyncValue.data(postsData);
       return postsData;
     } catch (e, stackTrace) {
+      print(e);
       state = AsyncValue.error(e, stackTrace);
       return [];
     }

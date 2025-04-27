@@ -25,7 +25,7 @@ class Weavee {
       email: json['email'],
       name: json['name'],
       username: json['username'],
-      imageUrl: json['imageUrl'],
+      imageUrl: json['image_url'],
       bio: json['bio'],
       posts:
           (json['posts'] as List)
@@ -40,7 +40,7 @@ class Weavee {
       'email': email,
       'name': name,
       'username': username,
-      'imageUrl': imageUrl,
+      'image_url': imageUrl,
       'bio': bio,
       'posts': posts.map((post) => post.toJson()).toList(),
     };
